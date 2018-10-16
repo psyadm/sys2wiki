@@ -48,10 +48,6 @@ do
 done
 echo
 
-echo -e "$HL PCI $HL\n"
-lspci |sed 's/^/  /'
-echo
-
 echo -e "$HL Filesystems $HL\n"
 df -hPT -x tmpfs | awk '{print "| " $1 " | " $2 " | " $3 " | " $7 " |"}'
 echo
@@ -88,3 +84,7 @@ if [ "$(ls -1d /sys/block/sd* 2> /dev/null)" ]; then
   done
   echo
 fi
+
+echo -e "$HL PCI $HL\n"
+lspci |sed 's/^/  /'
+echo
