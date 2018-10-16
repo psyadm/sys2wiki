@@ -14,18 +14,24 @@ SWAP=`cat /proc/meminfo | grep SwapTotal | awk -F\: '{print $2}' | awk -F\  '{pr
 SYSTEM=`uname -sr`
 HOSTNAME=`(hostname -f || hostname) 2>/dev/null`
 
-# look for known Distributions
-if [ -e /etc/debian_version ]; then
-  OS="Debian `cat /etc/debian_version`"
-elif [ -e /etc/redhat-release ]; then
-  OS=`cat /etc/redhat-release`
-elif [ -e /etc/SuSE-release ]; then
-  OS=`cat /etc/SuSE-release |head -n1`
-elif [ -e /etc/gentoo-release ]; then
-  OS=`< /etc/gentoo-release`
-else
-  OS='unknown'
-fi
+
+# set pretty OS Name
+source /etc/os-release
+OS=$PRETTY_NAME;
+
+#### OLD ####
+# look for known Distributions 
+#if [ -e /etc/debian_version ]; then
+#  OS="Debian `cat /etc/debian_version`"
+#elif [ -e /etc/redhat-release ]; then
+#  OS=`cat /etc/redhat-release`
+#elif [ -e /etc/SuSE-release ]; then
+#  OS=`cat /etc/SuSE-release |head -n1`
+#elif [ -e /etc/gentoo-release ]; then
+#  OS=`< /etc/gentoo-release`
+#else
+#  OS='unknown'
+#fi
 
 echo "
 $HL General $HL
