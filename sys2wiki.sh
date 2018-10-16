@@ -7,7 +7,7 @@ LANG=C
 HL='===='
 
 CPU=`cat /proc/cpuinfo  | grep 'model name' | awk -F\: '{print $2}'|uniq|sed -e 's/ //'`
-MHz=`cat /proc/cpuinfo | grep 'cpu MHz' | awk -F\: '{print $2}'|uniq|sed -e 's/ //'`
+#MHz=`cat /proc/cpuinfo | grep 'cpu MHz' | awk -F\: '{print $2}'|uniq|sed -e 's/ //'`
 CPUCOUNT=`cat /proc/cpuinfo|grep "physical id"|uniq|wc -l`
 RAM=`cat /proc/meminfo | grep MemTotal | awk -F\: '{print $2}' | awk -F\  '{print $1 " " $2}'`
 SWAP=`cat /proc/meminfo | grep SwapTotal | awk -F\: '{print $2}' | awk -F\  '{print $1 " " $2}'`
@@ -37,7 +37,6 @@ $HL General $HL
 
 ^ Hostname | $HOSTNAME |
 ^ CPU      | $CPU      |
-^ MHz      | $MHz      |
 ^ # CPU    | $CPUCOUNT |
 ^ RAM      | $RAM      |
 ^ Swap     | $SWAP     |
