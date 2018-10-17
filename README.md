@@ -1,7 +1,7 @@
 # sys2wiki
 bashscript to read hardware specs and output it in dokuwiki syntax. 
 
-# execute 
+# howto
 
 ```
 git clone https://github.com/psyadm/sys2wiki.git
